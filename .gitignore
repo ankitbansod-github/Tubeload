@@ -1,0 +1,8 @@
+.idea/
+venv/
+_pycache_/
+Lib/
+Script/
+Include/
+pyenv.cfg
+db.sqlite3

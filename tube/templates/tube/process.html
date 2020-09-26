@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Process</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tube/style.css' %}">
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+    <a class="nav-link active"  href="{% url 'tube:index'%}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active"  href="{% url 'tube:about' %}">About</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'tube:help' %}" >Help</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contact</a>
+  </li>
+</ul><br><br>
+
+<h2 class= "text-white ">Select the format</h2>
+<table  class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col" class= "text-white ">Resolution</th>
+      <th scope="col" class= "text-white ">Download</th>
+    </tr>
+  </thead>
+{% for i in rsl %}
+<tbody>
+<tr>
+    <td class= "text-white" >{{i}}</td>
+   <td class= "text-white "> <form action="{% url 'tube:result' i %}" method="POST">
+          {% csrf_token %}
+       <input type="submit" value="download" class="btn btn-success"> </form></td>
+
+</tr>
+</tbody>
+{% endfor %}
+</table>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
