@@ -6,4 +6,5 @@ Script/
 Include/
 pyenv.cfg
 db.sqlite3
-_pycache_
+tube/_pycache_
+tubeload/_pycache_
